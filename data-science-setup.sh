@@ -2,6 +2,13 @@
 
 set -euxo pipefail
 
+function systemBasicUpdate()
+{
+	echo "#### Basic ubuntu update"
+	# Update the apt package index and Upgrade the Ubuntu system
+	sudo apt-get update && sudo apt-get -y upgrade
+}
+
 function configureGit()
 {
 	echo "##### Configure Git"
@@ -12,5 +19,7 @@ function configureGit()
 	echo "Git configuration Detail:"
 	git config --list
 }
+
+systemBasicUpdate
 
 configureGit
