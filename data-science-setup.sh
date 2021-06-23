@@ -10,6 +10,7 @@ function systemBasicUpdate()
 }
 
 function configureGit()
+# the user name/email is just used to track who made what changes
 {
 	echo "##### Configure Git"
         read -r -p "Enter Git User Name:" userName
