@@ -29,8 +29,30 @@ wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.2.5001-amd64.d
 sudo gdebi rstudio-1.2.5001-amd64.deb
 }
 
+function installPython()
+{
+echo "---- Install Python"
+
+# To manage software packages for Python
+sudo apt install -y python3-pip
+
+#There are a few more packages and development tools to install 
+sudo apt install -y build-essential libssl-dev libffi-dev python3-dev
+
+#Virtual environments enable you to have an isolated space on your server for Python projects
+sudo apt install -y python3-venv
+
+# activate virtual environment
+# source mypython/bin/activate
+#To decativate the virtual environment and use your original Python environment, simply type ‘deactivate’.
+}
+
+
+
 systemBasicUpdate
 
 configureGit
 
-installR
+#installR
+
+installPython
