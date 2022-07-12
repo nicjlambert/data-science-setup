@@ -23,11 +23,34 @@ function configureGit()
 
 function installR()
 {
+
+# Install Required Packages
+sudo apt install dirmngr gnupg apt-transport-https ubuntu-keyring ca-certificates software-properties-common -y
+
+# import R GPG Key
+wget -O- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo gpg --dearmor | sudo tee /usr/share/keyrings/cran.gpg
+
+# import the CRAN repository with the following comman
+echo deb [signed-by=/usr/share/keyrings/cran.gpg] https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/ | sudo tee /etc/apt/sources.list.d/cran.list
+
+sudo apt update
+
+# Install R Programming Language
+echo "---- Install R"
+sudo apt install --no-install-recommends r-base r-base-dev build-essential libapparmor1 gdebi-core
+
 echo "---- Install RStudio"
 cd ~/tmp
-wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.2.5001-amd64.deb
-sudo gdebi rstudio-1.2.5001-amd64.deb
+## version is current as at 12-07-2022
+wget https://download1.rstudio.org/desktop/jammy/amd64/rstudio-2022.07.0-548-amd64.deb
+sudo gdebi rstudio-2022.07.0-548-amd64.deb
+rm rstudio-2022.07.0-548-amd64.deb
+
+sudo adduser rstudio
+
 }
+
+
 
 function installPython()
 {
@@ -51,8 +74,8 @@ sudo apt install -y python3-venv
 
 systemBasicUpdate
 
-configureGit
+#configureGit
 
 #installR
 
-installPython
+#installPython
