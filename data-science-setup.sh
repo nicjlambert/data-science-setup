@@ -46,7 +46,10 @@ wget https://download1.rstudio.org/desktop/jammy/amd64/rstudio-2022.07.0-548-amd
 sudo gdebi rstudio-2022.07.0-548-amd64.deb
 rm rstudio-2022.07.0-548-amd64.deb
 
-sudo adduser rstudio
+wget https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2022.07.0-548-amd64.deb
+sudo gdebi rstudio-server-2022.07.0-548-amd64.deb
+rm rstudio-server-2022.07.0-548-amd64.deb
+
 
 }
 
@@ -72,10 +75,10 @@ sudo apt install -y python3-venv
 
 
 
-systemBasicUpdate
+#systemBasicUpdate
 
 #configureGit
 
-#installR
+installR
 
 #installPython
