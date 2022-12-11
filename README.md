@@ -1,4 +1,4 @@
-# Data Science Setup on Ubuntu 20.04
+# Data Science Setup on Ubuntu 22.04
 
 ## Note to change ownership permissions
 `sudo chown -R username /path/to/file`

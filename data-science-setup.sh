@@ -24,13 +24,13 @@ function configureGit()
 function installR()
 {
 
-# Install Required Packages
+# Install R programming language and RStudio
 sudo apt install dirmngr gnupg apt-transport-https ubuntu-keyring ca-certificates software-properties-common -y
 
-# import R GPG Key
+# Import R GPG key
 wget -O- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo gpg --dearmor | sudo tee /usr/share/keyrings/cran.gpg
 
-# import the CRAN repository with the following comman
+# Import the CRAN repository
 echo deb [signed-by=/usr/share/keyrings/cran.gpg] https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/ | sudo tee /etc/apt/sources.list.d/cran.list
 
 sudo apt update
@@ -39,6 +39,7 @@ sudo apt update
 echo "---- Install R"
 sudo apt install --no-install-recommends r-base r-base-dev build-essential libapparmor1 gdebi-core
 
+# Download and install RStudio
 echo "---- Install RStudio"
 cd ~/tmp
 ## version is current as at 12-07-2022
@@ -59,20 +60,18 @@ echo "---- Install Python"
 # To manage software packages for Python
 sudo apt install -y python3-pip
 
-#There are a few more packages and development tools to install 
+# There are a few more packages and development tools to install 
 sudo apt install -y build-essential libssl-dev libffi-dev python3-dev
 
-#Virtual environments enable you to have an isolated space on your server for Python projects
+# Virtual environments enable you to have an isolated space on your server for Python projects
 sudo apt install -y python3-venv
 
-# activate virtual environment
+# Activate virtual environment
 # source mypython/bin/activate
-#To decativate the virtual environment and use your original Python environment, simply type ‘deactivate’.
+# To decativate the virtual environment and use your original Python environment, simply type ‘deactivate’.
 }
 
-
-
-systemBasicUpdate
+#systemBasicUpdate
 
 #configureGit
 
